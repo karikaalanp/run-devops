@@ -13,11 +13,12 @@ COPY . ./
 
 RUN dotnet publish "Shopping.Client.csproj" -c Release -o app 
 
-RUN dir -l -s
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 
 WORKDIR /app
 
-COPY --from=base /app/publish .
+RUN dir -l -s
+
+COPY --from=base /app .
 ENTRYPOINT ["dotnet", "Shopping.Client.dll"]
 
