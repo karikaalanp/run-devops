@@ -31,7 +31,7 @@ jobs:
         context: ./src/Shopping/Shopping.Client
         file: ./src/Shopping/Shopping.Client/dockerfile
         push: true
-        tags: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_c5c07c08be884390a7ba11d34400eee1 }}/karikaalanp/shoppingwebapp::${{ github.sha }}
+        tags: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_c5c07c08be884390a7ba11d34400eee1 }}/karikaalanp/shoppingwebapp:${{ github.sha }}'
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
