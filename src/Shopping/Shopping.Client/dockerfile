@@ -6,8 +6,6 @@
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
 
-RUN dotnet --version
-
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 
 COPY . ./
@@ -15,7 +13,7 @@ COPY . ./
 
 RUN dotnet publish "Shopping.Client.csproj" -c Release -o app 
 
-run dir -l -s
+RUN dir -l -s
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 
 WORKDIR /app
