@@ -3,8 +3,10 @@ WORKDIR /app
 
 RUN dotnet --version
 
-COPY *.csproj ./
-RUN dotnet restore
+COPY Shopping.Client.csproj ./
+
+
+RUN dotnet restore Shopping.Client.csproj
 
 COPY . ./
 RUN dotnet publish -c Release -o out
