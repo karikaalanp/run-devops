@@ -3,4 +3,4 @@ WORKDIR /app
 
 RUN dotnet --version
 
-dir -l -s
+run dir -l -s
