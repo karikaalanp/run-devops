@@ -4,6 +4,6 @@ RUN dotnet --version
 
 RUN pwd
 
-run dir -l *.*
+run dir -r
 
 copy . ./
