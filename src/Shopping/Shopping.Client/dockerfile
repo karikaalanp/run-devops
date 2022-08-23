@@ -6,19 +6,20 @@
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
 
+RUN dotnet --version
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 
 COPY . ./
 
 
-RUN dotnet publish "Shopping.Client.csproj" -c Release -o publish --no-self-contained
+RUN dotnet publish "Shopping.Client.csproj" -c Release -o app 
 
 run dir -l -s
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 
+WORKDIR /app
 
-
-COPY --from=base /publish .
+COPY --from=base /app/publish .
 ENTRYPOINT ["dotnet", "Shopping.Client.dll"]
 
