@@ -19,6 +19,6 @@ run dir -l -s
 FROM mcr.microsoft.com/dotnet/sdk:5.0 
 
 
-COPY --from=base ./publish .
+COPY --from=base /publish .
 ENTRYPOINT ["dotnet", "Shopping.Client.dll"]
 
