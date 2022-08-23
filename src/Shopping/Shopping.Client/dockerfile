@@ -12,7 +12,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 COPY . ./
 
 
-run dir
+run dir -l -s
 
 RUN dotnet publish "./Shopping.Client.csproj" -c Release -o /app/publish
 
