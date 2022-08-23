@@ -12,7 +12,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 COPY . ./
 RUN dotnet build "Shopping.Client.csproj" -c Release -o /app/build
 
-FROM build AS Publish
+FROM build AS publish
 RUN dotnet publish "Shopping.Client.csproj" -c Release -o /app/publish
 
 
@@ -21,6 +21,6 @@ WORKDIR /app
 
 RUN dir -l -s
 
-COPY --from=base /app .
+COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "Shopping.Client.dll"]
 
