@@ -9,8 +9,12 @@ RUN pwd
 
 run dir -r
 
+run dir .
+
 copy . ./
 
 RUN pwd
+
+run cd..
 
 run dir -r
