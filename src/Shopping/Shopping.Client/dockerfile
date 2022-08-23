@@ -14,8 +14,12 @@ COPY . ./
 
 run dir -l -s
 
-RUN dotnet publish "./Shopping.Client.csproj" -c Release -o /app/publish
+RUN dotnet publish "Shopping.Client.csproj" -c Release -o /app/publish
 
 
-run dir -l -s
+FROM base AS final
+WORKDIR /app
+
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Shopping.Client.dll"]
 
