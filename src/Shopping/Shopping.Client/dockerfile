@@ -10,9 +10,10 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 
 COPY . ./
+RUN dotnet build "Shopping.Client.csproj" -c Release -o /app/build
 
-
-RUN dotnet publish "Shopping.Client.csproj" -c Release -o app 
+FROM build AS Publish
+RUN dotnet publish "Shopping.Client.csproj" -c Release -o /app/publish
 
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 
