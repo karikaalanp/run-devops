@@ -10,7 +10,7 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR "./src"
 
-COPY [".Src/Shopping/Shopping.Client/Shopping.Client.csproj", "Shopping/Shopping.Client/"]
+COPY ["./Src/Shopping/Shopping.Client/Shopping.Client.csproj", "Shopping/Shopping.Client/"]
 RUN dotnet restore "./Src/Shopping/Shopping.Client/Shopping.Client.csproj"
 COPY . .
 WORKDIR "./src/Shopping/Shopping.Client"
