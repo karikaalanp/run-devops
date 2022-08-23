@@ -18,8 +18,8 @@ RUN dotnet publish "Shopping.Client.csproj" -c Release -o publish --no-self-cont
 
 
 FROM base AS final
+WORKDIR /app
 
-
-COPY --from=build /app/publish .
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Shopping.Client.dll"]
 
