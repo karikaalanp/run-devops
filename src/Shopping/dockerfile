@@ -4,4 +4,4 @@ RUN dotnet --version
 
 RUN pwd
 
-run dir -l -s
+run dir -l 
