@@ -2,6 +2,10 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 
 RUN dotnet --version
 
+WORKDIR /app
+
+
+
 RUN pwd
 
 run dir -r
