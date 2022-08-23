@@ -16,9 +16,4 @@ RUN dotnet publish "./src/Shopping/Shopping.Client/Shopping.Client.csproj" -c Re
 run dir
 
 
-FROM base AS final
-WORKDIR "/app"
-
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Shopping.Client.dll"]
 
