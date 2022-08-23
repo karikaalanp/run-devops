@@ -12,10 +12,9 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 COPY . ./
 
 
-run dir -l -s
-
 RUN dotnet publish "Shopping.Client.csproj" -c Release -o publish --no-self-contained
 
+run dir -l -s
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 
 
