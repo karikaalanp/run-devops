@@ -5,9 +5,9 @@ RUN dotnet --version
 WORKDIR /app
 
 
-
 RUN pwd
 
-run dir -r
 
 copy . ./
+
+run dir -r
