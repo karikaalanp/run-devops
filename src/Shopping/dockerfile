@@ -17,4 +17,6 @@ RUN pwd
 
 run cd ..
 
+RUN pwd
+
 run dir -r
