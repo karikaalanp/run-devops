@@ -12,6 +12,4 @@ WORKDIR "./src"
 
 RUN ls
 
-RUN echo ($pwd)
-
-CMD PWD
+RUN pwd
