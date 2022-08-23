@@ -31,7 +31,7 @@ jobs:
         context: ./src/Shopping/Shopping.Client
         file: ./src/Shopping/Shopping.Client/dockerfile
         push: true
-        tags: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_c5c07c08be884390a7ba11d34400eee1 }}/karikaalanp/shoppingwebapp:${{ github.sha }}'
+        tags: 'karikaalanp/shoppingwebapp:${{ github.sha }}'
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
@@ -51,4 +51,4 @@ jobs:
         app-name: 'slshoppingapp'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_b17d5d2b3901408e8d5ed02f9e9e9ed6 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_c5c07c08be884390a7ba11d34400eee1 }}/karikaalanp/shoppingwebapp:${{ github.sha }}'
+        images: 'karikaalanp/shoppingwebapp:${{ github.sha }}'
