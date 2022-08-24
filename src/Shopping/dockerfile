@@ -9,7 +9,7 @@ RUN pwd
 
 run dir -r
 
-run dir .
+run dir ./
 
 copy . ./
 
