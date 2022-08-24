@@ -7,13 +7,13 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 COPY . ./
 
-#RUN dir -l -s
+RUN dir -l -s
 
 WORKDIR ./src
 
-#RUN dir -s -b -o
-#RUN dir -l -s
-#RUN dir Shopping/Shopping.Client/ -l -s
+RUN dir -s -b -o
+RUN dir -l -s
+RUN dir Shopping/Shopping.Client/ -l -s
 
 #COPY ["Shopping/Shopping.Client/Shopping.Client.csproj", "Shopping/Shopping.Client/"]
 RUN dotnet restore "Shopping/Shopping.Client/Shopping.Client.csproj"
