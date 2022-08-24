@@ -13,6 +13,8 @@ run dir .
 
 copy . ./
 
+workdir shopping.client
+
 RUN pwd
 
 run cd ..
