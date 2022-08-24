@@ -28,7 +28,7 @@ jobs:
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
-        context: ./src/Shopping
+        #context: ./src/Shopping
         file: ./src/Shopping/Dockerfile
         push: true
         tags: 'karikaalanp/shoppingwebapp:${{ github.sha }}'
