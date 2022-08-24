@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY *.csproj . 
 
-dir -l -s
+run dir -l -s
 
 RUN dotnet restpre Shopping.Client.csproj
 
