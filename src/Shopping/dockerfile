@@ -1,26 +1,21 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
-
-RUN dotnet --version
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 
 WORKDIR /app
 
+COPY *.csproj . 
 
-RUN pwd
+RUN dotnet restore 
 
-run dir -r
+COPY . . 
 
-run dir ./
+RUN dotnet publish -c release -o out
 
-copy . ./
+FROM mcr.microsoft.com/dotnet/sdk:5.0
 
-workdir shopping.client
+WORKDIR /app
 
-run dir -r
+EXPOSE 80
 
-RUN pwd
+COPY --from=build /app/out .
 
-run cd ..
-
-RUN pwd
-
-run dir -r
+ENTRYPOINT ["dotnet", "Shopping.Client.dll"]
