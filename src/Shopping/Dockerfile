@@ -5,11 +5,20 @@ WORKDIR /app
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /src
-COPY ["Shopping/Shopping.Client/Shopping.Client.csproj", "Shopping/Shopping.Client/"]
+COPY . ./
+
+#RUN dir -l -s
+
+WORKDIR ./src
+
+#RUN dir -s -b -o
+#RUN dir -l -s
+#RUN dir Shopping/Shopping.Client/ -l -s
+
+#COPY ["Shopping/Shopping.Client/Shopping.Client.csproj", "Shopping/Shopping.Client/"]
 RUN dotnet restore "Shopping/Shopping.Client/Shopping.Client.csproj"
 COPY . .
-WORKDIR "/src/Shopping/Shopping.Client"
+WORKDIR "./src/Shopping/Shopping.Client"
 RUN dotnet build "Shopping.Client.csproj" -c Release -o /app/build
 
 FROM build AS publish
