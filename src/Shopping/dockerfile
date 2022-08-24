@@ -10,7 +10,7 @@ run dir -l -s
 
 WORKDIR ./src
 
-run dir /s /b /o:gn
+run dir -s -b -o:gn
 
 
 run dir -l -s
