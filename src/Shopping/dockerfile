@@ -10,12 +10,10 @@ run dir -l -s
 
 WORKDIR ./src
 
-run dir -l -s
+run dir ./src/Shopping -l -s
 
-WORKDIR ./src/Shopping
-
-run dir -l -s
-
-WORKDIR ./src/Shopping/Shopping.Client/
 
 run dir -l -s
+
+
+run dir ./src/Shopping/Shopping.Client/ -l -s
