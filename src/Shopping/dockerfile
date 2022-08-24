@@ -15,7 +15,7 @@ copy . ./
 
 workdir shopping.client
 
-dir dir -r
+run dir -r
 
 RUN pwd
 
