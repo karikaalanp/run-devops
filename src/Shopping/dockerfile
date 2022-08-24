@@ -13,19 +13,7 @@ WORKDIR ./src
 
 run dir -l -s
 
-COPY "Shopping/Shopping.Client/Shopping.Client.csproj" "Shopping.Client/"
-RUN dotnet restore Shopping/Shopping.Client/Shopping.Client.csproj"
+#COPY "Shopping/Shopping.Client/Shopping.Client.csproj" "Shopping.Client/"
+#RUN dotnet restore Shopping/Shopping.Client/Shopping.Client.csproj"
 
-COPY . . 
 
-RUN dotnet publish -c release -o out
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0
-
-WORKDIR /app
-
-EXPOSE 80
-
-COPY --from=build /app/out .
-
-ENTRYPOINT ["dotnet", "Shopping.Client.dll"]
