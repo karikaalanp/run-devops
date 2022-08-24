@@ -16,4 +16,4 @@ run dir -s -b -o
 run dir -l -s
 
 
-run dir ./src/Shopping/Shopping.Client/ -l -s
+run dir Shopping/Shopping.Client/ -l -s
