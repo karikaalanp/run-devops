@@ -6,7 +6,7 @@ COPY *.csproj .
 
 run dir -l -s
 
-RUN dotnet restpre Shopping.Client.csproj
+RUN dotnet restore Shopping.Client.csproj
 
 COPY . . 
 
