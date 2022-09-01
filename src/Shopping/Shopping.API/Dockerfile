@@ -9,16 +9,16 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["Shopping/Shopping.Client/Shopping.Client.csproj", "Shopping/Shopping.Client/"]
-RUN dotnet restore "Shopping/Shopping.Client/Shopping.Client.csproj"
+COPY ["Shopping/Shopping.API/Shopping.API.csproj", "Shopping/Shopping.API/"]
+RUN dotnet restore "Shopping/Shopping.API/Shopping.API.csproj"
 COPY . .
-WORKDIR "/src/Shopping/Shopping.Client"
-RUN dotnet build "Shopping.Client.csproj" -c Release -o /app/build
+WORKDIR "/src/Shopping/Shopping.API"
+RUN dotnet build "Shopping.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Shopping.Client.csproj" -c Release -o /app/publish
+RUN dotnet publish "Shopping.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Shopping.Client.dll"]
+ENTRYPOINT ["dotnet", "Shopping.API.dll"]
